@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Plans</h1>
+  <a href="{% url 'plan_create' %}">Add Plan</a>
+  <ul>
+    {% for plan in plans %}
+      <li>
+        <a href="{% url 'plan_detail' plan.pk %}">{{ plan.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ plan.name }}</h1>
+  <p>Price: {{ plan.price }}</p>
+  <p>Speed: {{ plan.speed }}</p>
+  <p>Data Cap: {{ plan.data_cap }}</p>
+  <p>Type: {{ plan.get_type_display }}</p>
+
+  <a href="{% url 'plan_update' plan.pk %}">Edit</a>
+  <form action="{% url 'plan_delete' plan.pk %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+{% endblock %}
